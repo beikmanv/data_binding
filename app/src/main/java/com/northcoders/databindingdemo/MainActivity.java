@@ -15,6 +15,7 @@ import com.northcoders.databindingdemo.model.Person;
 
 public class MainActivity extends AppCompatActivity {
 
+    // Automatically created data binding class
     private ActivityMainBinding activityMainBinding;
 
     @Override
@@ -28,12 +29,14 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        Person simon = new Person("Simon", "21", "simon@northcoders.co.uk");
-
+        // Intitialise the activityMainBinding by setting it to the DataBindingUtil class
         activityMainBinding = DataBindingUtil.setContentView(
                 this, R.layout.activity_main
         );
 
+        Person simon = new Person("Simon", "21", "simon@northcoders.co.uk");
+
+        // Set the specific data object to be used - this can be dynamic
         activityMainBinding.setPerson(simon);
 
     }
