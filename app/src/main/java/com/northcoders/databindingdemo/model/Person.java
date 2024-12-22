@@ -7,12 +7,12 @@ import com.example.databinding.BR;
 
 public class Person extends BaseObservable {
     String Name;
-    String Age;
+    int Age;
     String email;
 
     public Person () {}
 
-    public Person(String name, String age, String email) {
+    public Person(String name, int age, String email) {
         Name = name;
         Age = age;
         this.email = email;
@@ -29,11 +29,11 @@ public class Person extends BaseObservable {
     }
 
     @Bindable
-    public String getAge() {
+    public int getAge() {
         return Age;
     }
 
-    public void setAge(String age) {
+    public void setAge(int age) {
         Age = age;
         notifyPropertyChanged(BR.age);
     }

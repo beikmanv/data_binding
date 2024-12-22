@@ -11,7 +11,11 @@ import androidx.databinding.DataBindingUtil;
 
 import com.example.databinding.R;
 import com.example.databinding.databinding.ActivityMainBinding;
+import com.northcoders.databindingdemo.adapter.PersonAdapter;
 import com.northcoders.databindingdemo.model.Person;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,10 +38,19 @@ public class MainActivity extends AppCompatActivity {
                 this, R.layout.activity_main
         );
 
-        Person simon = new Person("Simon", "21", "simon@northcoders.co.uk");
+        // Create a list of Person objects
+        List<Person> personList = new ArrayList<>();
+        personList.add(new Person("John Doe", 30, "john.doe@example.com"));
+        personList.add(new Person("Jane Smith", 25, "jane.smith@example.com"));
+        personList.add(new Person("Mike Johnson", 35, "mike.johnson@example.com"));
+        personList.add(new Person("Emily Davis", 28, "emily.davis@example.com"));
+        personList.add(new Person("Chris Brown", 40, "chris.brown@example.com"));
 
-        // Set the specific data object to be used - this can be dynamic
-        activityMainBinding.setPerson(simon);
+        // Set up the adapter
+        PersonAdapter adapter = new PersonAdapter(this, personList);
+
+        // Bind the adapter to the ListView
+        activityMainBinding.personListView.setAdapter(adapter);
 
     }
 }
